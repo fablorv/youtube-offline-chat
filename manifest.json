@@ -1,0 +1,12 @@
+{
+
+	"manifest_version": 3,
+	"name": "offline chat",
+	"version":"0.0.1",
+	"content_scripts":[
+		{
+			"matches": ["*://*.youtube.com/c/*"],
+			"js": ["content.js"]
+		}
+	]
+}
