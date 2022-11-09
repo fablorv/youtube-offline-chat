@@ -5,8 +5,9 @@
 	"version":"0.0.1",
 	"content_scripts":[
 		{
-			"matches": ["*://*.youtube.com/c/*"],
+			"matches": ["*://*.youtube.com/c/*","*://*.youtube.com/channel/*"],
 			"js": ["content.js"]
 		}
 	]
+	
 }
