@@ -8,7 +8,7 @@ let body = document.body
 //the styling 
 button.style.all="unset"
 button.style.color="white"
-button.style.backgroundColor="black"
+button.style.backgroundImage="url('chrome-extension://fmofipljeljpddeppfnmgbmhnckcehbpk/Untitled.png')"
 button.style.width="130px"
 button.style.height="60px"
 button.style.fontSize="x-large"
@@ -17,21 +17,7 @@ button.style.borderRadius="50px"
 let styling = button.style
 styling.cursor = "pointer"
 
-console.log("first is srce:", "second is body:" ,body)
-//the testing
-let pathing = document.evaluate('/html/body/ytd-app/div[1]/ytd-page-manager/ytd-browse/div[3]/ytd-c4-tabbed-header-renderer/tp-yt-app-header-layout/div/tp-yt-app-header/div[2]/div[1]', document, null ,XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-console.log("this should be pathing:", pathing)
 
-window.addEventListener('load',(event) =>{
-	let srce = document.getElementsByClassName('banner-visible-area style-scope ytd-c4-tabbed-header-renderer')
-	let id = document.getElementById('banner-editor')
-
-	
-
-	console.log("if it works we win ? ", id)
-
-
-})
 
 
 
@@ -54,17 +40,34 @@ async function asyncCall() {
 
 asyncCall();
 
-
+let files = [
+	"index.html",
+	"Untitled.png"
+]
+let file = 'iframe/' + files[0]
+let url = chrome.runtime.getURL(file)
+console.log("SHOW ME THE GOD DAMN EARL",url)
 button.addEventListener('click', async (event) =>{
 
 	styling.display='none';
 	console.log("offline have been clicked")
 	let iframo = document.createElement("iframe")
-	iframo.setAttribute("src", "https://www.google.com/custom?q=&btnG=Search")
+	iframo.classList.add("offlineframe")
+	iframo.src = url
+	iframo.style.display="block"
 	iframo.style.width="640px"
 	iframo.style.height="480px"
 	let sFrame = iframo.style
 	sFrame.cssFloat="right"
+	let offlineframe = document.getElementsByClassName("offlineframe")
+	console.log(offlineframe.contentWindow)
 	const result = await resolveAfter2Seconds()
 	result[1].append(iframo)
 })
+
+window.onmessage = function(event){
+	if (event.data == 'reply'){
+		console.log('reply received!');
+		styling.display="block";	
+	}
+}

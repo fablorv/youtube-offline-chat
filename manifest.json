@@ -3,10 +3,16 @@
 	"manifest_version": 3,
 	"name": "offline chat",
 	"version":"0.0.1",
+
+	"web_accessible_resources": [
+		"/iframe/index.html",
+		"/Untitled.png"
+	],
 	"content_scripts":[
 		{
 			"matches": ["*://*.youtube.com/c/*","*://*.youtube.com/channel/*"],
-			"js": ["content.js"]
+			"js": ["content.js"],
+			"all_frames":true
 		}
 	]
 	
