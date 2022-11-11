@@ -1,3 +1,8 @@
+//import firebase from 'firebase/app'
+//import 'firebase/firestore'
+//import 'firebase/auth'
+//
+
 
 function resolveAfter2Seconds() {
   return new Promise(resolve => {
@@ -25,5 +30,8 @@ body.style.backgroundColor="white"
 function closing(){
 
 	window.top.postMessage('reply', '*')
-	body.style.display="none"
 }
+
+//
+//
+//const [user] = useAuthState(auth)

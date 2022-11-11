@@ -44,30 +44,35 @@ let files = [
 	"index.html",
 	"Untitled.png"
 ]
-let file = 'iframe/' + files[0]
+let file = 'iframe/build/' + files[0]
 let url = chrome.runtime.getURL(file)
 console.log("SHOW ME THE GOD DAMN EARL",url)
+
+let iframo = document.createElement("iframe")
 button.addEventListener('click', async (event) =>{
 
 	styling.display='none';
 	console.log("offline have been clicked")
-	let iframo = document.createElement("iframe")
 	iframo.classList.add("offlineframe")
+	
 	iframo.src = url
-	iframo.style.display="block"
+	
 	iframo.style.width="640px"
 	iframo.style.height="480px"
 	let sFrame = iframo.style
 	sFrame.cssFloat="right"
 	let offlineframe = document.getElementsByClassName("offlineframe")
-	console.log(offlineframe.contentWindow)
 	const result = await resolveAfter2Seconds()
-	result[1].append(iframo)
+	if(result[1].children.length == 2){
+		result[1].append(iframo)
+	}else iframo.style.display="inline"		
+	console.log( "can u give me result ty",result,"this should be ifrmao", iframo)
 })
 
 window.onmessage = function(event){
 	if (event.data == 'reply'){
 		console.log('reply received!');
-		styling.display="block";	
+		styling.display="inline";	
+		iframo.style.display="none"
 	}
 }

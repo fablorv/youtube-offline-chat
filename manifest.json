@@ -4,9 +4,11 @@
 	"name": "offline chat",
 	"version":"0.0.1",
 
-	"web_accessible_resources": [
-		"/iframe/index.html",
-		"/Untitled.png"
+	"web_accessible_resources":[
+		{
+			"resources" :["/iframe/index.html","/iframe/build/index.html","/Untitled.png"],
+			"matches":["<all_urls>"]
+		}
 	],
 	"content_scripts":[
 		{
