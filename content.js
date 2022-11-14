@@ -44,7 +44,7 @@ let files = [
 	"index.html",
 	"Untitled.png"
 ]
-let file = 'iframe/build/' + files[0]
+let file = 'iframe/reactframe/dist/' + files[0]
 let url = chrome.runtime.getURL(file)
 console.log("SHOW ME THE GOD DAMN EARL",url)
 
