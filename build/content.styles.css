@@ -1,0 +1,11 @@
+.offlino{
+	all:unset;
+	color:white;
+	width:130px;
+	height:60px;
+	font-size:x-large;
+	float:right;
+	border-radius:50px;
+	cursor: pointer;
+	background-color:green;
+}
